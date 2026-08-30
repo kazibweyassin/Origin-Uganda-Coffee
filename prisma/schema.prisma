@@ -1,0 +1,168 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum CoffeeType {
+  ROBUSTA
+  ARABICA
+  SPECIALTY_MICROLOT
+}
+
+enum LotStatus {
+  DRAFT
+  AVAILABLE
+  LIMITED
+  RESERVED
+  SOLD
+  FORWARD_CONTRACT
+}
+
+enum Incoterm {
+  FCA
+  FOB
+  CIP
+  CIF
+}
+
+enum BuyerType {
+  ROASTER
+  IMPORTER
+  DISTRIBUTOR
+  MANUFACTURER
+  BROKER
+  OTHER
+}
+
+enum RfqStatus {
+  NEW
+  QUALIFYING
+  QUOTED
+  NEGOTIATING
+  WON
+  LOST
+}
+
+enum AdminRole {
+  ADMIN
+  EDITOR
+}
+
+model AdminUser {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String
+  passwordHash String
+  role         AdminRole      @default(ADMIN)
+  active       Boolean        @default(true)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  sessions     AdminSession[]
+}
+
+model AdminSession {
+  id        String    @id @default(cuid())
+  tokenHash String    @unique
+  userId    String
+  user      AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model CoffeeLot {
+  id                    String          @id @default(cuid())
+  slug                  String          @unique
+  code                  String          @unique
+  name                  String
+  coffeeType            CoffeeType
+  variety               String
+  origin                String
+  region                String
+  grade                 String
+  screenSize            String
+  processingMethod      String
+  cropYear              String
+  moisture              Decimal         @db.Decimal(4, 2)
+  defects               String
+  cupScore              Decimal?        @db.Decimal(4, 2)
+  cupProfile            String[]
+  availableQuantityKg   Int
+  moqKg                 Int
+  packaging             String[]
+  certifications        String[]
+  traceability          String
+  officialRegion        String
+  eudrReadiness         String
+  documents             String[]
+  fobIndicativePriceUsd Decimal         @db.Decimal(10, 2)
+  status                LotStatus       @default(DRAFT)
+  images                String[]
+  featured              Boolean         @default(false)
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+  rfqs                   Rfq[]
+  samples                SampleRequest[]
+
+  @@index([coffeeType, status])
+  @@index([cropYear])
+}
+
+model Buyer {
+  id          String          @id @default(cuid())
+  company     String
+  contactName String
+  email       String
+  phone       String
+  website     String?
+  buyerType   BuyerType
+  country     String?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  rfqs        Rfq[]
+  samples     SampleRequest[]
+
+  @@index([email])
+}
+
+model Rfq {
+  id                 String     @id @default(cuid())
+  reference          String     @unique @default(cuid())
+  productId          String?
+  product            CoffeeLot? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  quantityKg         Int
+  destinationCountry String
+  destinationPort    String
+  incoterm           Incoterm
+  packaging          String
+  sampleRequired     Boolean
+  purchaseFrequency  String
+  notes              String?
+  status             RfqStatus  @default(NEW)
+  buyerId            String
+  buyer              Buyer      @relation(fields: [buyerId], references: [id])
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model SampleRequest {
+  id                 String     @id @default(cuid())
+  productId          String?
+  product            CoffeeLot? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  buyerId            String
+  buyer              Buyer      @relation(fields: [buyerId], references: [id])
+  destinationCountry String
+  courierAccount     String?
+  intendedUse        String
+  status             String     @default("NEW")
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+}
