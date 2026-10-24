@@ -1,4 +1,4 @@
-Extend the existing Origin Uganda Coffee Limited platform with these additional revenue channels. Do not redesign or rebuild the existing site structure unless necessary. Preserve the current branding, components, layout system, database conventions, and styling.
+Extend the existing Uganda Coffee Exchange Limited platform with these additional revenue channels. Do not redesign or rebuild the existing site structure unless necessary. Preserve the current branding, components, layout system, database conventions, and styling.
 
 ADD ONLY THE FOLLOWING:
 
@@ -14,7 +14,7 @@ Page content:
 Headline:
 "Launch Your Own Ugandan Coffee Brand"
 
-Explain the process:
+Explain the process:npm ru
 Choose Coffee → Select Roast → Choose Packaging → Branding → Sample Approval → Production → Export
 
 Private-label enquiry form fields:
@@ -41,15 +41,15 @@ Primary CTA:
 Store all enquiries in the existing database/admin system.
 
 
-2. ORIGIN UGANDA RETAIL RANGE
+2. UGANDA COFFEE EXCHANGE RETAIL RANGE
 
-Add a retail/wholesale section for Origin Uganda branded roasted coffee.
+Add a retail/wholesale section for Uganda Coffee Exchange branded roasted coffee.
 
 Product families:
-- Origin Uganda Arabica
-- Origin Uganda Robusta
-- Origin Uganda Espresso Blend
-- Origin Uganda Reserve / Specialty
+- Uganda Coffee Exchange Arabica
+- Uganda Coffee Exchange Robusta
+- Uganda Coffee Exchange Espresso Blend
+- Uganda Coffee Exchange Reserve / Specialty
 
 Sizes:
 - 250g
@@ -112,11 +112,11 @@ CTA:
 
 4. HOMEPAGE ADDITION
 
-Without redesigning the current homepage, add a new section presenting four ways to work with Origin Uganda:
+Without redesigning the current homepage, add a new section presenting four ways to work with Uganda Coffee Exchange:
 
 - Source Coffee in Bulk
 - Launch Your Coffee Brand
-- Stock Origin Uganda Coffee
+- Stock Uganda Coffee Exchange Coffee
 - Corporate Coffee Gifts
 
 Each card should link to the relevant existing or new page.

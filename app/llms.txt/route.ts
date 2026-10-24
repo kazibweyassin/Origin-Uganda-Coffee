@@ -11,13 +11,18 @@ export function GET() {
         `- [${lot.name}](${siteConfig.url}/coffee/${lot.slug}): ${lot.coffeeType} from ${lot.origin}; ${lot.grade}, ${lot.process}, crop ${lot.cropYear}.`,
     )
     .join("\n");
-  const insightLinks=insights.map(article=>`- [${article.title}](${siteConfig.url}/insights/${article.slug}): ${article.description}`).join("\n");
+  const insightLinks = insights
+    .map(
+      (article) =>
+        `- [${article.title}](${siteConfig.url}/insights/${article.slug}): ${article.description}`,
+    )
+    .join("\n");
 
-  const content = `# Origin Uganda Coffee
+  const content = `# ${siteConfig.name}
 
-> Origin Uganda Coffee is a B2B green coffee sourcing and export marketplace connecting international roasters, importers, distributors and manufacturers with Ugandan coffee supply.
+> ${siteConfig.name} is a B2B green coffee sourcing and export marketplace connecting international roasters, importers, distributors and manufacturers with Ugandan coffee supply.
 
-Origin Uganda Coffee Limited is based in Kampala, Uganda. The company sources export-ready Uganda Robusta, Uganda Arabica, fine Robusta and traceable specialty microlots. Commercial enquiries are handled through current quote and sample requests. The website does not accept online payments. Indicative prices and availability must be confirmed in a current written quote.
+${siteConfig.legalName} is based in ${siteConfig.location}. The company sources export-ready Uganda Robusta, Uganda Arabica, fine Robusta and traceable specialty microlots. Commercial enquiries are handled through current quote and sample requests. The website does not accept online payments. Indicative prices and availability must be confirmed in a current written quote.
 
 ## Core pages
 
@@ -39,8 +44,10 @@ ${lotLinks}
 
 ## Company facts
 
-- Legal name: Origin Uganda Coffee Limited.
-- Brand: Origin Uganda Coffee.
+- Legal name: ${siteConfig.legalName}.
+- Brand: ${siteConfig.name}.
+- Primary domain: ${siteConfig.domain}.
+- Alternate domain: ${siteConfig.alternateDomain}.
 - Positioning: Source Ugandan Coffee Direct From Origin.
 - Products: Uganda Robusta, Uganda Arabica, fine Robusta and specialty green coffee microlots.
 - Buyers served: coffee roasters, green coffee importers, distributors and manufacturers.
