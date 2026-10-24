@@ -14,7 +14,7 @@ const valueChain = [
 ];
 
 const roasts = [
-  ["Medium Roast", "Caramel, hazelnut, dark chocolate, honey, vanilla; fruity sweet aftertaste, moderate acidity.", "https://images.unsplash.com/photo-1511920170033-f8bcf69eb08a?auto=format&fit=crop&w=800&q=80"],
+  ["Medium Roast", "Caramel, hazelnut, dark chocolate, honey, vanilla; fruity sweet aftertaste, moderate acidity.", "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"],
   ["Medium Dark Roast", "More pronounced caramel and chocolate; dominant bitter-sweet finish.", "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"],
   ["Dark Roast", "Smokey caramel, hazelnut, dark chocolate; mildly sweet, low acidity.", "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80"],
 ];
