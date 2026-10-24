@@ -29,7 +29,7 @@ export default function Services() {
           <div>
             <p className="eyebrow">Natural African coffee</p>
             <h2>Premium Ugandan coffee, roasted with care.</h2>
-            <p>100% Arabica, fully traceable, single origin sun-dried naturals sourced from the Rwenzori mountain region.</p>
+            <p>100% Arabica, fully traceable, single origin sun-dried naturals sourced from the Rwenzori mountain region. Grown at 1,500–2,000 m on volcanic soils irrigated by crater lakes; naturally processed lots show a strong mouthfeel with floral and winy flavour, while washed lots offer soft acidity and a distinctive lingering aftertaste.</p>
             <Link href="/request-quote" className="button">Request quote <ArrowRight /></Link>
           </div>
         </div>
