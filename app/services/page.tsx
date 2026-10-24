@@ -14,9 +14,9 @@ const valueChain = [
 ];
 
 const roasts = [
-  ["Medium Roast", "Caramel, hazelnut, dark chocolate, honey, vanilla; fruity sweet aftertaste, moderate acidity."],
-  ["Medium Dark Roast", "More pronounced caramel and chocolate; dominant bitter-sweet finish."],
-  ["Dark Roast", "Smokey caramel, hazelnut, dark chocolate; mildly sweet, low acidity."],
+  ["Medium Roast", "Caramel, hazelnut, dark chocolate, honey, vanilla; fruity sweet aftertaste, moderate acidity.", "https://images.unsplash.com/photo-1511920170033-f8bcf69eb08a?auto=format&fit=crop&w=800&q=80"],
+  ["Medium Dark Roast", "More pronounced caramel and chocolate; dominant bitter-sweet finish.", "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"],
+  ["Dark Roast", "Smokey caramel, hazelnut, dark chocolate; mildly sweet, low acidity.", "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80"],
 ];
 
 export default function Services() {
@@ -53,9 +53,9 @@ export default function Services() {
           <p className="eyebrow">Roasted ground coffee</p>
           <h2>Roast profiles.</h2>
           <div className="roast-grid">
-            {roasts.map(([t, b]) => (
+            {roasts.map(([t, b, img]) => (
               <article key={t} className="roast-card">
-                <div className="roast-image"><Image src="/images/pexels-photo-12482129.jpeg" alt={t} fill sizes="(max-width:768px)100vw,33vw" style={{ objectFit: "cover" }} /></div>
+                <div className="roast-image"><Image src={String(img)} alt={String(t)} fill sizes="(max-width:768px)100vw,33vw" style={{ objectFit: "cover" }} /></div>
                 <h3>{t}</h3>
                 <p>{b}</p>
                 <Link href="/request-quote" className="button button-small">Request quote <ArrowRight /></Link>
