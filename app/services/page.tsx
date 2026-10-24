@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bean, CheckCircle2, Package, Ship, Sprout } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
@@ -21,8 +22,19 @@ const roasts = [
 export default function Services() {
   return (
     <>
-      <PageHero eyebrow="Our services" title="From green bean to delivered coffee" copy="Roasted ground coffee, green beans and wholesale supply covering the entire value chain." image="https://images.unsplash.com/photo-1459339331461-48d103e41528?auto=format&fit=crop&w=2000&q=85" imageAlt="Coffee beans" creditUrl="https://unsplash.com/photos/1459339331461" />
+      <PageHero eyebrow="Our services" title="From green bean to delivered coffee" copy="Roasted ground coffee, green beans and wholesale supply covering the entire value chain." image="/images/uganda-coffee-hero.png" imageAlt="Ugandan coffee" creditUrl="https://rwenzacoffee.com" />
       <section className="section">
+        <div className="shell service-hero-grid">
+          <div className="service-hero-image"><Image src="/images/banner-top-img.jpg" alt="Coffee beans" fill sizes="(max-width:768px)100vw,50vw" style={{ objectFit: "cover" }} /></div>
+          <div>
+            <p className="eyebrow">Natural African coffee</p>
+            <h2>Premium Ugandan coffee, roasted with care.</h2>
+            <p>100% Arabica, fully traceable, single origin sun-dried naturals sourced from the Rwenzori mountain region.</p>
+            <Link href="/request-quote" className="button">Request quote <ArrowRight /></Link>
+          </div>
+        </div>
+      </section>
+      <section className="section paper-band">
         <div className="shell editorial-grid">
           <div><p className="eyebrow">Value chain</p><h2>What we do.</h2></div>
           <div className="value-grid">
@@ -36,13 +48,14 @@ export default function Services() {
           </div>
         </div>
       </section>
-      <section className="section paper-band">
+      <section className="section">
         <div className="shell">
           <p className="eyebrow">Roasted ground coffee</p>
           <h2>Roast profiles.</h2>
           <div className="roast-grid">
             {roasts.map(([t, b]) => (
               <article key={t} className="roast-card">
+                <div className="roast-image"><Image src="/images/pexels-photo-12482129.jpeg" alt={t} fill sizes="(max-width:768px)100vw,33vw" style={{ objectFit: "cover" }} /></div>
                 <h3>{t}</h3>
                 <p>{b}</p>
                 <Link href="/request-quote" className="button button-small">Request quote <ArrowRight /></Link>
@@ -51,7 +64,7 @@ export default function Services() {
           </div>
         </div>
       </section>
-      <section className="section">
+      <section className="section paper-band">
         <div className="shell cta-row">
           <div>
             <p className="eyebrow">Wholesale</p>
